@@ -3,53 +3,53 @@
 @tailwind utilities;
 
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-hind-siliguri), sans-serif;
 }
 
 @layer base {
   :root {
-    --background: 210 29% 97%;
-    --foreground: 212 35% 18%;
-    --card: 210 29% 97%;
-    --card-foreground: 212 35% 18%;
-    --popover: 210 29% 97%;
-    --popover-foreground: 212 35% 18%;
-    --primary: 158 64% 52%;
-    --primary-foreground: 0 0% 98%;
-    --secondary: 14 100% 70%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215 14% 47%;
-    --accent: 158 64% 52%;
-    --accent-foreground: 212 35% 18%;
-    --destructive: 0 100% 66%;
+    --background: 35 33% 97%;          /* warm off-white, like aged parchment */
+    --foreground: 20 25% 12%;          /* deep warm brown */
+    --card: 35 33% 97%;
+    --card-foreground: 20 25% 12%;
+    --popover: 35 33% 97%;
+    --popover-foreground: 20 25% 12%;
+    --primary: 22 90% 52%;             /* rich saffron/turmeric orange */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 35 15% 88%;           /* warm neutral cream */
+    --secondary-foreground: 20 25% 12%;
+    --accent: 22 90% 52%;             /* same as primary orange */
+    --accent-foreground: 0 0% 100%;
+    --muted: 35 20% 90%;
+    --muted-foreground: 20 15% 45%;
+    --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 158 64% 52%;
-    --radius: 0.5rem;
+    --border: 35 20% 84%;
+    --input: 35 20% 84%;
+    --ring: 22 90% 52%;
+    --radius: 0.75rem;
   }
  
   .dark {
-    --background: 220 13% 6%;
-    --foreground: 210 20% 87%;
-    --card: 220 13% 9%;
-    --card-foreground: 210 20% 87%;
-    --popover: 220 13% 6%;
-    --popover-foreground: 210 20% 87%;
-    --primary: 158 64% 52%;
-    --primary-foreground: 220 13% 6%;
-    --secondary: 14 100% 70%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 220 9% 27%;
-    --muted-foreground: 220 9% 47%;
-    --accent: 158 64% 52%;
-    --accent-foreground: 0 0% 98%;
-    --destructive: 0 100% 66%;
+    --background: 20 18% 8%;           /* very dark warm brown */
+    --foreground: 35 25% 90%;          /* cream */
+    --card: 20 18% 11%;
+    --card-foreground: 35 25% 90%;
+    --popover: 20 18% 8%;
+    --popover-foreground: 35 25% 90%;
+    --primary: 22 90% 58%;             /* same saffron, slightly brighter */
+    --primary-foreground: 20 18% 8%;
+    --secondary: 20 15% 16%;           /* deep warm charcoal */
+    --secondary-foreground: 35 25% 90%;
+    --accent: 22 90% 58%;
+    --accent-foreground: 0 0% 100%;
+    --muted: 20 12% 18%;
+    --muted-foreground: 35 15% 55%;
+    --destructive: 0 62% 30%;
     --destructive-foreground: 0 0% 98%;
-    --border: 220 9% 17%;
-    --input: 220 9% 17%;
-    --ring: 158 64% 52%;
+    --border: 20 12% 20%;
+    --input: 20 12% 20%;
+    --ring: 22 90% 58%;
   }
 }
  
@@ -58,6 +58,36 @@ body {
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground min-h-screen flex flex-col;
   }
 }
+
+@layer utilities {
+  /* Hide scrollbar for carousel containers */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .hero-gradient-mesh {
+    background-color: hsla(22, 90%, 52%, 0.1);
+    background-image: 
+      radial-gradient(at 0% 0%, hsla(22, 90%, 52%, 0.15) 0px, transparent 50%),
+      radial-gradient(at 50% 0%, hsla(155, 40%, 42%, 0.1) 0px, transparent 50%),
+      radial-gradient(at 100% 0%, hsla(22, 90%, 52%, 0.15) 0px, transparent 50%);
+    filter: blur(80px);
+    width: 100%;
+    height: 100%;
+    animation: mesh-float 20s ease-in-out infinite alternate;
+  }
+
+  @keyframes mesh-float {
+    0% { transform: scale(1) translate(0, 0); }
+    50% { transform: scale(1.1) translate(5%, 5%); }
+    100% { transform: scale(1) translate(-5%, 2%); }
+  }
+}
+
