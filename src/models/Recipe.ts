@@ -21,6 +21,7 @@ export interface IRecipe extends Document {
   authorId?: string;
   isApproved: boolean;
   createdAt: Date;
+  updatedAt: Date;
   viewCount: number;
 }
 
@@ -55,7 +56,7 @@ const RecipeSchema = new Schema<IRecipe>({
   isApproved: { type: Boolean, default: true },
   createdAt: { type: Date, default: Date.now },
   viewCount: { type: Number, default: 0 },
-});
+}, { timestamps: true });
 
 // Add a text index on title + description + ingredients + tags for $text search
 RecipeSchema.index({ title: 'text', description: 'text', ingredients: 'text', tags: 'text' });

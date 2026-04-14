@@ -203,7 +203,7 @@ export function CookingView({ recipe, onFinish }: { recipe: any; onFinish?: () =
                       {formatTime(timer.remaining)}
                     </p>
                     <Button 
-                      variant="primary" 
+                      variant="default" 
                       size="icon" 
                       className="h-16 w-16 md:h-20 md:w-20 rounded-full shadow-lg"
                       onClick={() => setTimer(t => t ? {...t, isRunning: !t.isRunning} : null)}
