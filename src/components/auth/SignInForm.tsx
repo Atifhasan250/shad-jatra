@@ -56,8 +56,8 @@ export function SignInForm() {
     if (!signIn) return;
     signIn.sso({
       strategy: 'oauth_google',
-      redirectUrl: window.location.origin + '/sso-callback',
-      redirectCallbackUrl: window.location.origin + '/',
+      redirectUrl: '/sso-callback',
+      redirectCallbackUrl: '/',
     });
   };
 

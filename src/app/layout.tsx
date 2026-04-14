@@ -77,7 +77,11 @@ export default async function RootLayout({
   const isSignedIn = !!userId;
 
   return (
-    <ClerkProvider afterSignOutUrl="/">
+    <ClerkProvider
+      afterSignOutUrl="/"
+      signInFallbackRedirectUrl="/"
+      signUpFallbackRedirectUrl="/"
+    >
       <html lang="bn" suppressHydrationWarning>
         <body className={`${hindSiliguri.variable} ${balooDa2.variable} font-body antialiased bg-background text-foreground`}>
           <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
